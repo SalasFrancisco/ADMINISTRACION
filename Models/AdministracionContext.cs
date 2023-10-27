@@ -18,14 +18,13 @@ namespace WinFormsApp3.Models
         }
 
         public virtual DbSet<Articulo> Articulos { get; set; }
-        public virtual DbSet<Proveedor> Proveedors { get; set; }
+        public virtual DbSet<Proveedor> Provedors { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlite("DataSource=C:\\Users\\Alumnos\\source\\repos\\WinFormsApp3\\bin\\Debug\\netcoreapp3.1\\Administracion.db;");
+                optionsBuilder.UseSqlite("DataSource=C:\\Users\\Alumno\\Source\\Repos\\SalasFrancisco\\ADMINISTRACION\\DB\\Administracion.db;");
             }
         }
 

@@ -9,7 +9,7 @@ namespace WinFormsApp3.Models
     {
         public long ArticuloId { get; set; }
         public string Nombre { get; set; }
-        public byte[] Precio { get; set; }
+        public decimal Precio { get; set; }
         public long? ProveedorId { get; set; }
     }
 }

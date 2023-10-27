@@ -38,5 +38,11 @@ namespace WinFormsApp3
         {
             this.Close();
         }
+
+        private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reporte rep = new Reporte();
+            rep.ShowDialog();
+        }
     }
 }

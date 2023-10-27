@@ -34,6 +34,7 @@ namespace WinFormsApp3
             db.Add(new Proveedor { Nombre = txtNombre.Text });
             db.SaveChanges();
             txtNombre.Text = "";
+            llenar_grilla();
         }
 
         private void frmProveedor_Load(object sender, EventArgs e)
@@ -45,7 +46,7 @@ namespace WinFormsApp3
         {
             using var db = new AdministracionContext();
 
-            var query = from a in db.Proveedors
+            var query = from a in db.Provedors
                         orderby a.ProveedorId
                         select a;
 
@@ -54,6 +55,28 @@ namespace WinFormsApp3
             foreach(var p in query)
             {
                 dgvProveedores.Rows.Add(p.ProveedorId.ToString(), p.Nombre);
+            }
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            using var db = new AdministracionContext();
+
+            int id = Convert.ToInt32(txtProveedorId.Text);
+            var query = from a in db.Provedors
+                        where a.ProveedorId == id
+                        select a;
+
+            if (query.Any())
+            {
+                var Art = query.First();
+                db.Remove(Art);
+                db.SaveChanges();
+                llenar_grilla();
+            }
+            else
+            {
+                MessageBox.Show("Proveedor inexistente", "ERROR");
             }
         }
     }
